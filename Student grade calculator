@@ -1,0 +1,58 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter number of subjects: ");
+        int n = Convert.ToInt32(Console.ReadLine());
+        double[] grades = new double[n];
+        double total = 0;
+
+        // Loop input
+        for (int i = 0; i < n; i++)
+        {
+            Console.Write($"Enter grade #{i + 1}: ");
+            grades[i] = Convert.ToDouble(Console.ReadLine());
+            total += grades[i];
+        }
+
+        // Average
+        double average = total / n;
+        Console.WriteLine("\nAverage grade: " + average);
+
+        // If...Else
+        if (average >= 90)
+            Console.WriteLine("You got an A!");
+        else if (average >= 80)
+            Console.WriteLine("You got a B!");
+        else if (average >= 70)
+            Console.WriteLine("You got a C!");
+        else if (average >= 60)
+            Console.WriteLine("You got a D!");
+        else
+            Console.WriteLine("You got an F.");
+
+        // Switch (based on remark)
+        Console.Write("\nEnter letter grade (A-F): ");
+        char grade = Char.ToUpper(Console.ReadKey().KeyChar);
+        Console.WriteLine();
+        switch (grade)
+        {
+            case 'A': Console.WriteLine("Excellent work!"); break;
+            case 'B': Console.WriteLine("Good job!"); break;
+            case 'C': Console.WriteLine("Fair effort."); break;
+            case 'D': Console.WriteLine("Needs improvement."); break;
+            case 'F': Console.WriteLine("Failed. Study harder."); break;
+            default: Console.WriteLine("Invalid grade."); break;
+        }
+
+        // Sorting grades
+        Array.Sort(grades);
+        Console.WriteLine("\nSorted grades:");
+        foreach (double g in grades)
+            Console.WriteLine(g);
+
+        Console.WriteLine("\nProgram complete.");
+    }
+}
