@@ -1,0 +1,60 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // User Input and Variables
+        Console.Write("Enter your name: ");
+        string name = Console.ReadLine();
+
+        Console.Write("Enter your age: ");
+        int age = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Enter number of grades: ");
+        int count = Convert.ToInt32(Console.ReadLine());
+
+        double[] grades = new double[count];
+        double sum = 0;
+
+        // Loop input for grades
+        for (int i = 0; i < count; i++)
+        {
+            Console.Write($"Enter grade #{i + 1}: ");
+            grades[i] = Convert.ToDouble(Console.ReadLine());
+            sum += grades[i];
+        }
+
+        // Compute average
+        double average = sum / count;
+        Console.WriteLine($"\n{name}, your average grade is {average}");
+
+        // If...Else and Boolean
+        bool passed = average >= 75;
+        if (passed)
+            Console.WriteLine("Status: PASSED ✅");
+        else
+            Console.WriteLine("Status: FAILED ❌");
+
+        // Switch for remarks
+        Console.WriteLine("\nEnter your section letter (A, B, C): ");
+        char section = Char.ToUpper(Console.ReadKey().KeyChar);
+        Console.WriteLine();
+
+        switch (section)
+        {
+            case 'A': Console.WriteLine("Section A - Excellent Students"); break;
+            case 'B': Console.WriteLine("Section B - Good Students"); break;
+            case 'C': Console.WriteLine("Section C - Needs Improvement"); break;
+            default: Console.WriteLine("Unknown section"); break;
+        }
+
+        // Sort and display grades
+        Array.Sort(grades);
+        Console.WriteLine("\nSorted Grades:");
+        foreach (double g in grades)
+            Console.WriteLine(g);
+
+        Console.WriteLine("\nProgram Complete!");
+    }
+}
