@@ -1,0 +1,26 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 5, 1, 9, 3, 7 };
+
+        Console.WriteLine("Numbers before sorting:");
+        foreach (int n in numbers)
+            Console.Write(n + " ");
+
+        Array.Sort(numbers);
+        Console.WriteLine("\nNumbers after sorting:");
+        foreach (int n in numbers)
+            Console.Write(n + " ");
+
+        Console.WriteLine("\nEven numbers:");
+        foreach (int n in numbers)
+        {
+            if (n % 2 == 0)
+                Console.WriteLine(n);
+        }
+    }
+}
+
